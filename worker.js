@@ -1,6 +1,11 @@
+var myStuff = new Function("return;");
 onmessage = function(e) {
-  console.log('Message received from main script');
-  var workerResult = 'Result: ' + (e.data[0] * e.data[1]);
-  console.log('Posting message back to main script');
-  postMessage(workerResult);
+  if(typeof e === "function"){
+    myStuff = e;
+    if(typeof myStuff === "function")suc = true;
+    if(typeof myStuff != "function")suc = false;
+  }else{
+    suc = myStuff(e);
+  }
+  postMessage(suc);
 }
