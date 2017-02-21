@@ -4,7 +4,7 @@ if (window.Worker) { // Check if Browser supports the Worker api.
 		this.worker.onmessage = function(e){
 			this.recieve(e.data);
 		}
-		this.recieve = recieve;
+		this.worker.recieve = recieve;
 	}
 	window.worker.prototype=Object.assign(Worker.prototype,{
 		send(data){
