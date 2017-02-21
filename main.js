@@ -21,6 +21,6 @@ if (window.Worker) { // Check if Browser supports the Worker api.
 	window.worker.prototype=Object.assign(Worker.prototype,{
 		send(data){
 			this.worker.postMessage(data);
-		},
+		}
 	});
 }
