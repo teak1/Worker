@@ -16,6 +16,7 @@ if (window.Worker) { // Check if Browser supports the Worker api.
 			messages[this.recievePos](e.data);
 		}
 		messages[this.recievePos] = recieve;
+		this.worker.send(messages[this.recievePos]);
 	}
 	window.worker.prototype=Object.assign(Worker.prototype,{
 		send(data){
